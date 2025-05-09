@@ -70,7 +70,7 @@ const LoginForm = () => {
                     type="checkbox" 
                     {...register("autoLogin")}
                 />
-                <S.Label htmlFor="autoLogin">자동 로그인</S.Label>
+                <S.AutoLogin htmlFor="autoLogin">자동 로그인</S.AutoLogin>
                 </S.CheckBox>
             <Button type="submit">로그인</Button>
             <S.AnotherLabel>다른 학교 선택</S.AnotherLabel>

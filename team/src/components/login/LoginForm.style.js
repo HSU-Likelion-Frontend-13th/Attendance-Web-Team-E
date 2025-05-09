@@ -31,6 +31,7 @@ export const ErrorMessage = styled.p`
     color: red;
     font-size: 14px;
     margin-top: 5px;
+    
 `;
 
 export const Label = styled.label`
@@ -57,15 +58,44 @@ export const Lion = styled.img`
 
 export const CheckBox = styled.div`
     display: flex;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 70rem;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 28px;
     color: black;
-    input {
+    input[type="checkbox"] {
+        appearance: none;
+        width: 30px;
+        height: 30px;
+        border: 2px solid ;
+        border-radius: 100%;
+        cursor: pointer;
         margin-right: 10px;
     }
+    input[type="checkbox"]:checked {
+        background-color: #2162E9;
+        border: 2px solid #2162E9;
+        box-shadow: 0 0 0 4px white;
+    }
+         input[type="checkbox"]:checked::after {
+        content: "✔"; /* 체크 표시 */
+        color: white;
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+   
+        
 `;
+export const AutoLogin = styled.label`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 20px;
+   
+    `;
 
 export const AnotherLabel = styled.label`
     font-size: 16px;
