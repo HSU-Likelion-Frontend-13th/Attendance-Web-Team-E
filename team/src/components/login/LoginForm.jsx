@@ -31,14 +31,15 @@ const LoginForm = () => {
         <S.FormContainer onSubmit={handleSubmit(onSubmit)}>
             <S.Lion src={Lion} alt='Lion'></S.Lion>
             <S.Logo src={School} alt='School'></S.Logo>
+            
             <S.InputBox>
-                <S.Label htmlFor="name">이름</S.Label>
+            <S.Label htmlFor="name">이름</S.Label>
                 <S.Input
                     id="name"
                     type="text"
+                    placeholder= "👤 이름을 입력해주세요"
                     hsError={!!errors.name}
                     {...register("name", {
-                        placeholder: "이름을 입력해주세요",
                         required: "이름을 입력해주세요",
                         pattern: {
                             value: /^[가-힣]{2,4}$/,
@@ -46,17 +47,18 @@ const LoginForm = () => {
                         }
                     })}
                 />
+                
             </S.InputBox>
             {errors.name && <S.ErrorMessage>{errors.name.message}</S.ErrorMessage>}
-
+            
             <S.InputBox>
-                <S.Label htmlFor="number">학번</S.Label>
+            <S.Label htmlFor="number">학번</S.Label>
                 <S.Input
                     id="number"
                     type="text"
+                    placeholder= "🔒 학번을 입력해주세요"
                     hsError={!!errors.number}
                     {...register("number", {
-                        placeholder: "학번을 입력해주세요",
                         required: "학번을 입력해주세요",
                         pattern: {
                             value: /^[0-9]{7}$/,
@@ -64,6 +66,7 @@ const LoginForm = () => {
                         }
                     })}
                 />
+                
             </S.InputBox>
             {errors.number && <S.ErrorMessage>{errors.number.message}</S.ErrorMessage>}
 

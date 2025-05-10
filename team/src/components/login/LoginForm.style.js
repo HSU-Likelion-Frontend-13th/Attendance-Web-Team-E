@@ -33,6 +33,7 @@ export const Input = styled.input`
     }
 `;
 
+
 export const ErrorMessage = styled.p`
     color: red;
     font-size: 14px;
@@ -45,6 +46,7 @@ export const Label = styled.label`
     margin-bottom: 5px;
     color: #777C89;
 `;
+
 
 export const Logo = styled.img`
     width: 487px;
