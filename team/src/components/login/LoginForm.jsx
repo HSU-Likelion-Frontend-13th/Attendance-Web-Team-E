@@ -23,7 +23,7 @@ const LoginForm = () => {
             setLoginError("");
             navigate("/main");
         } else {
-            setLoginError("이름과 학번이 잘못되었습니다");
+            setLoginError("⚠️ 이름과 학번이 잘못되었습니다");
         }
     };
 
@@ -43,7 +43,7 @@ const LoginForm = () => {
                         required: "이름을 입력해주세요",
                         pattern: {
                             value: /^[가-힣]{2,4}$/,
-                            message: "한글만 입력 가능합니다."
+                            message: "⚠️ 한글만 입력 가능합니다."
                         }
                     })}
                 />
@@ -62,7 +62,7 @@ const LoginForm = () => {
                         required: "학번을 입력해주세요",
                         pattern: {
                             value: /^[0-9]{7}$/,
-                            message: "7자리 숫자만 입력 가능합니다."
+                            message: "⚠️ 7자리 숫자만 입력 가능합니다."
                         }
                     })}
                 />
