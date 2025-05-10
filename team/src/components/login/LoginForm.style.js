@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {hasError} from "react-hook-form";
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
@@ -22,9 +22,15 @@ export const Input = styled.input`
     width: 550px;
     height: 50px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid ${(props) => (props.hsError ? "red" : "#ccc")}; /* 에러 시 빨간 테두리 */
+    border-radius: 16px;
     font-size: 16px;
+    background-color: ${(props) => (props.hsError ? "#ffe6e6" : "white")}; /* 에러 시 배경색 변경 */
+    outline: none;
+
+    &:focus {
+        border-color: ${(props) => (props.hsError ? "red" : "#2162E9")}; /* 포커스 시 테두리 색상 */
+    }
 `;
 
 export const ErrorMessage = styled.p`
@@ -56,7 +62,7 @@ export const Lion = styled.img`
    
 `;
 
-export const CheckBox = styled.div`
+export const CheckboxContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -86,13 +92,13 @@ export const CheckBox = styled.div`
         display: block;
         text-align: center;
     }
-   
         
 `;
 export const AutoLogin = styled.label`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
     font-size: 20px;
    
     `;

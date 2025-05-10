@@ -34,7 +34,9 @@ const LoginForm = () => {
             <S.InputBox>
                 <S.Label htmlFor="name">이름</S.Label>
                 <S.Input
+                    id="name"
                     type="text"
+                    hsError={!!errors.name}
                     {...register("name", {
                         placeholder: "이름을 입력해주세요",
                         required: "이름을 입력해주세요",
@@ -50,9 +52,11 @@ const LoginForm = () => {
             <S.InputBox>
                 <S.Label htmlFor="number">학번</S.Label>
                 <S.Input
+                    id="number"
                     type="text"
+                    hsError={!!errors.number}
                     {...register("number", {
-                        placeholder: "학번을 입력해주세요요",
+                        placeholder: "학번을 입력해주세요",
                         required: "학번을 입력해주세요",
                         pattern: {
                             value: /^[0-9]{7}$/,
@@ -64,14 +68,14 @@ const LoginForm = () => {
             {errors.number && <S.ErrorMessage>{errors.number.message}</S.ErrorMessage>}
 
             {loginError && <S.ErrorMessage>{loginError}</S.ErrorMessage>}
-            <S.CheckBox>
+            <S.CheckboxContainer>
                 <input 
                     id="autoLogin"
                     type="checkbox" 
                     {...register("autoLogin")}
                 />
                 <S.AutoLogin htmlFor="autoLogin">자동 로그인</S.AutoLogin>
-                </S.CheckBox>
+                </S.CheckboxContainer>
             <Button type="submit">로그인</Button>
             <S.AnotherLabel>다른 학교 선택</S.AnotherLabel>
         </S.FormContainer>
