@@ -12,10 +12,12 @@ const dummyUser = {
 };
 
 const LoginForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState("");
 
+    const nameValue = watch("name", ""); // "name" 필드의 현재 값
+    const numberValue = watch("number", ""); // "number" 필드의 현재 값
 
     const onSubmit = (data) => {
         const { name, number } = data;

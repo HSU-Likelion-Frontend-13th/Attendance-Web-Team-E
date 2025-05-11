@@ -7,7 +7,6 @@ function App() {
     <div className="App">
       <Link to="/login">Login</Link>
          
-
       {/* Add your routes here */}
     </div>
   );

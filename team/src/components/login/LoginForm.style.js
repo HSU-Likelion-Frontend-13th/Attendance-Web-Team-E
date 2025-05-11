@@ -25,11 +25,24 @@ export const Input = styled.input`
     border: 1px solid ${(props) => (props.hsError ? "red" : "#ccc")}; /* 에러 시 빨간 테두리 */
     border-radius: 16px;
     font-size: 16px;
-    background-color: ${(props) => (props.hsError ? "#ffe6e6" : "white")}; /* 에러 시 배경색 변경 */
+    background-color: ${(props) =>
+        props.hsError ? "#ffe6e6" : props.isValid ? "#e4ebfb" : "white"}; /* 에러 시 빨간색, 유효하면 연한 파란색 */
     outline: none;
 
     &:focus {
         border-color: ${(props) => (props.hsError ? "red" : "#2162E9")}; /* 포커스 시 테두리 색상 */
+    }
+    &::placeholder {
+        color: #777C89;
+    }
+    &:hover {
+        border-color: #2162E9; /* 마우스 오버 시 테두리 색상 */
+        background-color: ${(props) =>
+            props.hsError ? "#ffe6e6" : props.isValid ? "#e4ebfb" : "#f0f8ff"}; /* 마우스 오버 시 배경색 */
+    }
+    &:active {
+        background-color: ${(props) =>
+            props.hsError ? "#ffe6e6" : props.isValid ? "#e4ebfb" : "#e4ebfb"}; /* 클릭 시 배경색 */
     }
 `;
 
