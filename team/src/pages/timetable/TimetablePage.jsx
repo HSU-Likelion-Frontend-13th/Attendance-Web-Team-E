@@ -1,10 +1,118 @@
 import React from 'react'
+import styled from 'styled-components';
+import LionLogo from '../../components/common/LionLogo';
+import School from "../../assets/School.png";
+import Pf1 from "../../assets/Pf1.png";
+import Pf2 from "../../assets/Pf2.png";
+export const TableContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* 자식 요소의 absolute 위치를 기준으로 설정 */
+    
+`;
+export const Logo = styled.img`
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 155px;
+    height: 79px;
+`;
+export const Label = styled.div`
+    position: absolute;
+    top: 100px;
+    display:block;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+`;
+export const TableBox = styled.div`
+    position: relative;
+    width: 600px;
+    height: 100px;
+    border: 2px solid #2162EB;
+    border-radius: 10px;
+    display: flex;
+    justify-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    &:hover {
+        background-color: #e4ebfb;
+        cursor: pointer;
+    }
+`;
+export const ContentContainer = styled.div`
+    display: flex;
+    justify-direction: row;
+    align-items: center;
+    gap: 90px;
+`;
+export const Profile = styled.img`
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+`;
+export const TextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+
+`;
+export const Title = styled.div`
+    font-size: 30px;
+    font-weight: bold;
+    `;
+export const Subtitle = styled.div`
+    font-size: 20px;
+    color: #777c89;
+    margin-top: 10px;
+    `;
 
 const TimetablePage = () => {
   return (
-    <div>
-      <h1>TimeTable</h1>
-    </div>
+    <TableContainer>
+        <LionLogo />
+        <Logo src={School} alt="School"></Logo>
+        <Label>오늘의 시간표</Label>
+        <TableBox>
+           <ContentContainer>
+            <Profile src={Pf1} alt="Profile1"></Profile>
+            <TextContainer>
+                <Title>UX/UX 지적 재산권 [A]</Title>
+                <Subtitle>10:30 - 12:00 | 탐구관 502호</Subtitle>
+            </TextContainer>
+           </ContentContainer>
+        </TableBox>
+
+        <TableBox>
+           <ContentContainer>
+            <Profile src={Pf1} alt="Profile1"></Profile>
+            <TextContainer>
+                <Title>AI와 HCI [D]</Title>
+                <Subtitle>01:30 - 15:00 | 탐구관 508호</Subtitle>
+            </TextContainer>
+           </ContentContainer>
+        </TableBox>
+
+        <TableBox>
+           <ContentContainer>
+            <Profile src={Pf2} alt="Profile2"></Profile>
+            <TextContainer>
+                <Title>영어 커뮤니케이션 [B]</Title>
+                <Subtitle>16:00 - 19:00 | 탐구관 502호</Subtitle>
+            </TextContainer>
+           </ContentContainer>
+        </TableBox>
+        
+    </TableContainer>
   )
 }
 
