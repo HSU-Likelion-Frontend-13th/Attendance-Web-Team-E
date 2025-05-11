@@ -5,7 +5,7 @@ import App from './App';
 import LoginPage from './pages/login/LoginPage';
 import MainPage from './pages/main/MainPage';
 import TimePage from './pages/timetable/TimePage';
-import TimeTablePage from './pages/timetable/TimetablePage';
+import TimetablePage from "./pages/timetable/TimetablePage";
 import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
     element: <TimePage />,
   },
 
+  {
+    path: "/timetable",
+    element: <TimetablePage />,
+  },
 
   {
     path: "*", // 모든 경로를 나타낸다

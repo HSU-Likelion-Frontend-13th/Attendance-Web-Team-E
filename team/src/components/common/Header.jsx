@@ -8,12 +8,15 @@ const HeaderContainer = styled.div`
 `;
 
 const LogoutButton = styled.button`
+  position: absolute;
+  top: 40px; /* 상단에서 40px 떨어짐 */
+  right: 40px; /* 오른쪽에서 40px 떨어짐 */
   background: none;
   border: none;
   color: #777c89;
   font-size: 16px;
   cursor: pointer;
-  justify-content: flex-end;
+  text-decoration: underline;
 `;
 
 const Header = () => {
