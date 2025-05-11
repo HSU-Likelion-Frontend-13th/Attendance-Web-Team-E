@@ -6,6 +6,7 @@ import LoginPage from './pages/login/LoginPage';
 import MainPage from './pages/main/MainPage';
 import TimePage from './pages/timetable/TimePage';
 import TimetablePage from "./pages/timetable/TimetablePage";
+import TableItem from"./pages/timetable/TableItem";
 import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
   {
     path: "/timetable",
     element: <TimetablePage />,
+  },
+
+  {
+    path: "/timetable/:id",
+    element: <TableItem />,
   },
 
   {

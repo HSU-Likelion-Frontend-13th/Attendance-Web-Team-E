@@ -4,6 +4,8 @@ import LionLogo from '../../components/common/LionLogo';
 import School from "../../assets/School.png";
 import Pf1 from "../../assets/Pf1.png";
 import Pf2 from "../../assets/Pf2.png";
+import { useNavigate } from 'react-router-dom';
+
 export const TableContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -27,6 +29,9 @@ export const Label = styled.div`
     font-size: 40px;
     font-weight: bold;
     text-align: center;
+`;
+export const TableBoxContainer = styled.div`
+    padding-top: 100px;
 `;
 export const TableBox = styled.div`
     position: relative;
@@ -76,13 +81,48 @@ export const Subtitle = styled.div`
     margin-top: 10px;
     `;
 
+
+
+
 const TimetablePage = () => {
+    const timetableItems = [
+    {
+        id: 1,
+        title: "UX/UX 지적 재산권 [A]",
+        time: "10:30 - 12:00",
+        location: "탐구관 502호",
+    },
+    
+    {
+        id: 2,
+        title: "AI와 HCI [D]",
+        time: "01:30 - 15:00", 
+        location: "탐구관 508호",
+    },
+
+    {
+        id: 3,
+        title: "영어 커뮤니케이션 [B]",
+        time: "16:00 - 19:00",
+        location: "탐구관 502호",
+    },
+    ];
+
+    const navigate = useNavigate();
+
+    const handleClick = (id) => {
+        navigate(`/timetable/${id}`);
+    }
+
   return (
     <TableContainer>
         <LionLogo />
         <Logo src={School} alt="School"></Logo>
         <Label>오늘의 시간표</Label>
-        <TableBox>
+
+        <TableBoxContainer>
+       
+        <TableBox onClick={() => handleClick(1)}>
            <ContentContainer>
             <Profile src={Pf1} alt="Profile1"></Profile>
             <TextContainer>
@@ -91,7 +131,7 @@ const TimetablePage = () => {
             </TextContainer>
            </ContentContainer>
         </TableBox>
-
+       
         <TableBox>
            <ContentContainer>
             <Profile src={Pf1} alt="Profile1"></Profile>
@@ -111,8 +151,9 @@ const TimetablePage = () => {
             </TextContainer>
            </ContentContainer>
         </TableBox>
-        
+        </TableBoxContainer>
     </TableContainer>
+   
   )
 }
 
