@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from './App';
 import LoginPage from './pages/login/LoginPage';
 import MainPage from './pages/main/MainPage';
+import TimePage from './pages/timetable/TimePage';
+import TimeTablePage from './pages/timetable/TimetablePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
@@ -20,6 +22,12 @@ const router = createBrowserRouter([
     path: "/main",
     element: <MainPage />,
   },
+
+  {
+    path: "/time",
+    element: <TimePage />,
+  },
+
 
   {
     path: "*", // 모든 경로를 나타낸다

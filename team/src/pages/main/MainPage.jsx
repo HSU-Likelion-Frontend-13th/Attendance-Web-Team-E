@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LionLogo from '../../components/common/LionLogo';
 import * as S from '../../components/common/Button.style';
 import SchoolLogo from '../../components/common/SchoolLogo';
+import { useNavigate } from 'react-router-dom';
 
 const MainContainer = styled.div`
   display: flex;
@@ -26,13 +27,18 @@ const LogoutButton = styled.button`
 `;
 
 const MainPage = () => {
+  const navigate = useNavigate();
+  const handleTimePage = () => {
+    navigate('/time');
+  }
+
   return (
     <MainContainer>
       <LionLogo />
       <SchoolLogo />
       <LogoutButton>로그아웃</LogoutButton>
       <S.Button>출석체크</S.Button>
-      <S.Button>오늘의 시간표</S.Button>
+      <S.Button onClick={handleTimePage}>오늘의 시간표</S.Button>
     </MainContainer>
   );
 };
