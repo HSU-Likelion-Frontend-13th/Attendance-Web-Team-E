@@ -5,6 +5,8 @@ import * as S from "./LoginForm.style";
 import { Button } from "../common/Button.style"; // Button import
 import School from "../../assets/School.png"; // Import your logo image
 import Lion from "../../assets/Lion.png"; // Import your lion image
+import LionLogo from "../../components/common/LionLogo"; // Import your LionLogo component
+
 
 const dummyUser = {
     name: "최멋사",
@@ -31,7 +33,7 @@ const LoginForm = () => {
 
     return (
         <S.FormContainer onSubmit={handleSubmit(onSubmit)}>
-            <S.Lion src={Lion} alt='Lion'></S.Lion>
+            <LionLogo />
             <S.Logo src={School} alt='School'></S.Logo>
             
             <S.InputBox>

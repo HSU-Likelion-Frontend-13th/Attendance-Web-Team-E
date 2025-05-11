@@ -1,11 +1,40 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+import LionLogo from '../../components/common/LionLogo';
+import * as S from '../../components/common/Button.style';
+import SchoolLogo from '../../components/common/SchoolLogo';
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+`;
+
+const LogoutButton = styled.button`
+  position: absolute;
+  top: 40px; /* 상단에서 40px 떨어짐 */
+  right: 40px; /* 오른쪽에서 40px 떨어짐 */
+  background: none;
+  border: none;
+  color: #777c89;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: underline;
+`;
 
 const MainPage = () => {
   return (
-    <div>
-      <h1>Main Page</h1>
-    </div>
-  )
-}
+    <MainContainer>
+      <LionLogo />
+      <SchoolLogo />
+      <LogoutButton>로그아웃</LogoutButton>
+      <S.Button>출석체크</S.Button>
+      <S.Button>오늘의 시간표</S.Button>
+    </MainContainer>
+  );
+};
 
-export default MainPage
+export default MainPage;
