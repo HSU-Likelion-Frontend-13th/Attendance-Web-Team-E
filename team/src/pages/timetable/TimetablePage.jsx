@@ -5,6 +5,7 @@ import School from "../../assets/School.png";
 import Pf1 from "../../assets/Pf1.png";
 import Pf2 from "../../assets/Pf2.png";
 import { useNavigate } from 'react-router-dom';
+import TableItem from "./TableItem";
 
 export const TableContainer = styled.div`
     display: flex;
@@ -91,6 +92,7 @@ const TimetablePage = () => {
         title: "UX/UX 지적 재산권 [A]",
         time: "10:30 - 12:00",
         location: "탐구관 502호",
+        profile: Pf1,
     },
     
     {
@@ -98,6 +100,7 @@ const TimetablePage = () => {
         title: "AI와 HCI [D]",
         time: "01:30 - 15:00", 
         location: "탐구관 508호",
+        profile: Pf1,
     },
 
     {
@@ -105,6 +108,7 @@ const TimetablePage = () => {
         title: "영어 커뮤니케이션 [B]",
         time: "16:00 - 19:00",
         location: "탐구관 502호",
+        profile: Pf2,
     },
     ];
 
@@ -121,40 +125,22 @@ const TimetablePage = () => {
         <Label>오늘의 시간표</Label>
 
         <TableBoxContainer>
-       
-        <TableBox onClick={() => handleClick(1)}>
-           <ContentContainer>
-            <Profile src={Pf1} alt="Profile1"></Profile>
-            <TextContainer>
-                <Title>UX/UX 지적 재산권 [A]</Title>
-                <Subtitle>10:30 - 12:00 | 탐구관 502호</Subtitle>
+            
+        {timetableItems.map((item) => (
+            <TableBox key={item.id} onClick={() => handleClick(item.id)}>
+                <ContentContainer>
+                 <Profile src={item.profile} alt="Profile1"></Profile>
+                <TextContainer>
+                <Title>{item.title}</Title>
+                <Subtitle>{item.time} | {item.location}</Subtitle>
             </TextContainer>
-           </ContentContainer>
-        </TableBox>
-       
-        <TableBox>
-           <ContentContainer>
-            <Profile src={Pf1} alt="Profile1"></Profile>
-            <TextContainer>
-                <Title>AI와 HCI [D]</Title>
-                <Subtitle>01:30 - 15:00 | 탐구관 508호</Subtitle>
-            </TextContainer>
-           </ContentContainer>
-        </TableBox>
-
-        <TableBox>
-           <ContentContainer>
-            <Profile src={Pf2} alt="Profile2"></Profile>
-            <TextContainer>
-                <Title>영어 커뮤니케이션 [B]</Title>
-                <Subtitle>16:00 - 19:00 | 탐구관 502호</Subtitle>
-            </TextContainer>
-           </ContentContainer>
-        </TableBox>
+        </ContentContainer>
+     </TableBox>
+        ))}
         </TableBoxContainer>
     </TableContainer>
    
   )
 }
 
-export default TimetablePage
+export default TimetablePage;
