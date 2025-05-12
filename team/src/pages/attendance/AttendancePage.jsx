@@ -30,6 +30,8 @@ export default function AttendancePage() {
             return "before"; //수업 전
         if(now>end)
             return "after"; //수업 후
+        if(now>start && now<=end)
+            return "during"; //수업 중
     };
 
    useEffect(() => {
