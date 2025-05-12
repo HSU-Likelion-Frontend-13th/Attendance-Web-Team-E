@@ -1,4 +1,6 @@
 import React, { useEffect,useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
 
 import CurrentTime from "../../components/attendance/CurrentTime";
 import ClassInfo from "../../components/attendance/ClassInfo";
@@ -8,11 +10,19 @@ import AttendanceButton from "../../components/attendance/AttendanceButton";
 
 
 
-
-
 export default function AttendancePage() {
+  const [params]=useSearchParams();
+  const courseCode=params.get("courseCode"); 
+
+
     const [now, setNow]=useState(new Date()); //현재시간 받기
     const [status, setStatus]=useState("before"); //출석 상태 
+
+    const courseTimes={
+      A: { start: "10:30", end: "12:00" },
+      D: { start: "13:30", end: "15:00" },
+      B: { start: "16:00", end: "19:00" },
+    };
 
     const getAttendanceStatus = ( now,startTime="10:30",endTime="12:00")=>{
         const [startHour, startMinute]= startTime.split(":").map(Number); //시작 시:분
@@ -33,7 +43,7 @@ export default function AttendancePage() {
 
         if(difference<=5)
             return "onTime"; //출석 인정되는 시간
-        if(difference>5 && difference<=30)
+        if(difference>5 && difference<=10)
             return "late"; //지각
         return "absent"; //결석
         
@@ -43,14 +53,15 @@ export default function AttendancePage() {
         const timer = setInterval(() => {
             const current = new Date(); 
             setNow(current); //현재시간 설정
-            setStatus(getAttendanceStatus(current)); //출석 상태 설정
+             const { start, end } = courseTimes[courseCode] || courseTimes["A"];
+            setStatus(getAttendanceStatus(current,start,end)); //출석 상태 설정
 
         },1000); //1초마다 업데이트 해줌
         
         return () => {
     clearInterval(timer);
   };
-}, []);
+}, [courseCode]);
 
 
    return (
@@ -77,7 +88,8 @@ export default function AttendancePage() {
 
       {/*하단*/}
       <div style={{ textAlign: "center", marginTop: "30px", fontSize: "14px", color: "#555" }}>
-         <ClassInfo now={now} />
+        <ClassInfo course={courseCode} />
+
         <CurrentTime now={now} />
       </div>
     </div>
