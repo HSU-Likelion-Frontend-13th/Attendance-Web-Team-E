@@ -1,10 +1,10 @@
 import React from "react";
 
 
-export default function CurrentTime() {
+export default function CurrentTime({ now }) { //now 값을 props로 받아옴
   return (
     <div>
-      <h1>CurrentTime 페이지 입니다.</h1>
+      <h3>현재 시간: {now.toLocaleTimeString()}</h3>
     </div>
   );
 }
