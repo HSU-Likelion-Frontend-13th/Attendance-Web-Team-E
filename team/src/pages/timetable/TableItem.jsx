@@ -4,10 +4,9 @@ import styled from 'styled-components';
 import TimetablePage from './TimetablePage';
 
 export const TableItemContainer = styled.div`
-    
     background-color: rgb(228, 234, 251);
-    padding: 0px;
-    margin: 0px;
+    overflow: hidden; /* 스크롤 방지 */
+   
 `;
 
 export const TimeItemContainer = styled.div`

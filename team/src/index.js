@@ -12,7 +12,7 @@ import NotFoundPage from './pages/NotFoundPage';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <LoginPage />,
   },
   {
     path: "/login",
