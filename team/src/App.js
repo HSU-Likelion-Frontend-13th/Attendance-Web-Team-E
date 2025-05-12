@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import AttendancePage from "./pages/attendance/AttendancePage"; // 경로는 프로젝트 구조에 따라 조절
 
 function App() {
   return (
     <div className="App">
-     <h1>Welcome to the Team E</h1>
+      <AttendancePage />
     </div>
   );
 }

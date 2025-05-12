@@ -24,14 +24,19 @@ export default function AttendancePage() {
         const end=new Date(now);
         end.setHours(endHour,endMinute,0); //종료시간 설정
 
-
+        const difference=Math.floor((now-start)/60000); //현재시간과 시작시간의 차이
 
         if(now<start)
             return "before"; //수업 전
         if(now>end)
             return "after"; //수업 후
-        if(now>start && now<=end)
-            return "during"; //수업 중
+
+        if(difference<=5)
+            return "onTime"; //출석 인정되는 시간
+        if(difference>5 && difference<=30)
+            return "late"; //지각
+        return "absent"; //결석
+        
     };
 
    useEffect(() => {
@@ -57,9 +62,9 @@ export default function AttendancePage() {
 
       <StatusDescription />
 
-      <StatusIcon />
+      <StatusIcon status={status} />
 
-      <StatusTitle />
+      <StatusTitle status={status} />
 
       <AttendanceButton />
     </div>
