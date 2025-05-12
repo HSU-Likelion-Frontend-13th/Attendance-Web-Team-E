@@ -4,9 +4,10 @@ import styled from 'styled-components';
 import TimetablePage from './TimetablePage';
 
 export const TableItemContainer = styled.div`
+    
     background-color: rgb(228, 234, 251);
-    width: 100%;
-
+    padding: 0px;
+    margin: 0px;
 `;
 
 export const TimeItemContainer = styled.div`
@@ -35,10 +36,11 @@ export const WeekButton = styled.button`
     background-color: ${(props) => (props.active ? '#2162EB' : 'white')};
     color: ${(props) => (props.active ? 'white' : '#2162EB')};
     border: 1px solid #2162EB;
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    width: 100px;
 
     &:hover {
         background-color: ${(props) => (props.active ? '#1A4DB8' : '#E4EBFB')};
@@ -65,6 +67,17 @@ export const WeekButton = styled.button`
     }
 `;
 
+export const Title = styled.h1`
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+`;
+export const Time = styled.p`
+    font-size: 18px;
+    margin-bottom: 100px;
+    margin-top: 5px;
+    color: #9EA3B2;
+`;
 const timetableItems = [
     { id: 1, title: "UX/UI 지적 재산권 [A]", time: "10:30 - 12:00", location: "탐구관 502호" },
     { id: 2, title: "AI와 HCI [D]", time: "01:30 - 15:00", location: "탐구관 508호" },
@@ -85,9 +98,9 @@ const TableItem = () => {
         <TableItemContainer>
             <TimetablePage />
             <TimeItemContainer>
-                <h1>{item.title}</h1>
-                <p>{item.time}</p>
-                <p>{item.location}</p>
+                <Title>{item.title}</Title>
+                <Time>{item.time} | {item.location}</Time>
+              
 
                 <WeekButtonContainer>
                     {weeks.map((week) => (
