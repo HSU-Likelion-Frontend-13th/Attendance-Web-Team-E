@@ -1,9 +1,10 @@
 import React from "react";
 
-import rightIcon from "../../img/right.png";
-import lateIcon from "../../img/late.png";
-import notyetIcon from "../../img/notyet.png";
-import outIcon from "../../img/out.png";
+import rightIcon from "../img/right.png";
+import lateIcon from "../img/late.png";
+import notyetIcon from "../img/notyet.png";
+import outIcon from "../img/out.png";
+
 
 
 export default function StatusIcon({status}){

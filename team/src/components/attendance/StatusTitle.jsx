@@ -1,6 +1,6 @@
 import React from "react";
 
-const Statustitle =({status})=>{
+const StatusTitle =({status})=>{
     let message="";
 
     if(status==="before"){
@@ -22,4 +22,4 @@ const Statustitle =({status})=>{
     );
 };
 
-    export default Statustitle;
+    export default StatusTitle;

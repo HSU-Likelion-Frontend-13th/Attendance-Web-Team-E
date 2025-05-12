@@ -1,10 +1,9 @@
 import React, { useEffect,useState } from "react";
-import AttendanceButton from "../../components/attendance/AttendanceButton";
+
 import CurrentTime from "../../components/attendance/CurrentTime";
 import ClassInfo from "../../components/attendance/ClassInfo";
 import StatusTitle from "../../components/attendance/StatusTitle";
 import StatusIcon from "../../components/attendance/StatusIcon";
-import StatusDescription from "../../components/attendance/StatusDescription";
 
 
 
@@ -60,14 +59,14 @@ export default function AttendancePage() {
 
       <ClassInfo />
 
-      <StatusDescription />
+ 
 
       <StatusIcon status={status} />
 
       <StatusTitle status={status} />
 
-      <AttendanceButton />
       
+
     </div>
   );
 }
