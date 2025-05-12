@@ -1,15 +1,10 @@
 import React from "react";
-import AttendancePage from "./pages/attendance/AttendancePage"; 
-import StatusIcon from "./components/attendance/StatusIcon";
+import AttendancePage from "./pages/attendance/AttendancePage";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <AttendancePage />
-      <StatusIcon status="onTime" />
-      <StatusIcon status="late" />
-      <StatusIcon status="before" />
-      <StatusIcon status="after" />
     </div>
   );
 }

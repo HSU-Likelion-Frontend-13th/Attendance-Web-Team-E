@@ -4,6 +4,7 @@ import CurrentTime from "../../components/attendance/CurrentTime";
 import ClassInfo from "../../components/attendance/ClassInfo";
 import StatusTitle from "../../components/attendance/StatusTitle";
 import StatusIcon from "../../components/attendance/StatusIcon";
+import AttendanceButton from "../../components/attendance/AttendanceButton";
 
 
 
@@ -52,22 +53,33 @@ export default function AttendancePage() {
 }, []);
 
 
-  return (
-    <div>
-      <h1>AttendancePage 페이지 입니다.</h1>
-      <CurrentTime now={now} /> 
+   return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "40px 20px",
+        fontFamily: "sans-serif",
+      }}
+    >
+      {/*중앙*/}
+      <div style={{ textAlign: "center" }}>
+       
+        <StatusIcon status={status} />
+        <StatusTitle status={status} />
+        <AttendanceButton
+          status={status}
+          onClick={() => alert("✅ 출석이 처리되었습니다!")}
+        />
+      </div>
 
-
-      <ClassInfo />
-
- 
-
-      <StatusIcon status={status} />
-
-      <StatusTitle status={status} />
-
-      
-
+      {/*하단*/}
+      <div style={{ textAlign: "center", marginTop: "30px", fontSize: "14px", color: "#555" }}>
+         <ClassInfo now={now} />
+        <CurrentTime now={now} />
+      </div>
     </div>
   );
 }
