@@ -67,6 +67,7 @@ export default function AttendancePage() {
       <StatusTitle status={status} />
 
       <AttendanceButton />
+      
     </div>
   );
 }
