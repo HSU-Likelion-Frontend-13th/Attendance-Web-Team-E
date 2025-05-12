@@ -14,6 +14,17 @@ export default function AttendancePage() {
   return (
     <div>
       <h1>AttendancePage 페이지 입니다.</h1>
+      <CurrentTime />
+
+      <ClassInfo />
+
+      <StatusDescription />
+
+      <StatusIcon />
+
+      <StatusTitle />
+
+      <AttendanceButton />
     </div>
   );
 }
