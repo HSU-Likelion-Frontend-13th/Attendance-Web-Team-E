@@ -26,20 +26,24 @@ export default function AttendancePage() {
 
 
 
-        if(now<start){
+        if(now<start)
             return "before"; //수업 전
         if(now>end)
             return "after"; //수업 후
     };
 
-    
+   useEffect(() => {
+        const timer = setInterval(() => {
+            const current = new Date(); 
+            setNow(current); //현재시간 설정
+            setStatus(getAttendanceStatus(current)); //출석 상태 설정
+
+        },1000); //1초마다 업데이트 해줌
         
-        
-
-
-
-    }
-
+        return () => {
+    clearInterval(timer);
+  };
+}, []);
 
 
   return (
