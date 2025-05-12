@@ -1,13 +1,13 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+import GotoAttendance from "./pages/attendance/GotoAttendance"; // 경로 수정됨
 import AttendancePage from "./pages/attendance/AttendancePage";
-import GotoAttendance from "./pages/attendance/GotoAttendance";
 
 function App() {
   return (
-    <div>
-      <AttendancePage />
-      
-    </div>
+    <Routes>
+      <Route path="/" element={<GotoAttendance />} />
+      <Route path="/attendance" element={<AttendancePage />} />
+    </Routes>
   );
 }
 

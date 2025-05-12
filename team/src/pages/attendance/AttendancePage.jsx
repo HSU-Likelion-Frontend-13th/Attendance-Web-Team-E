@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 import CurrentTime from "../../components/attendance/CurrentTime";
@@ -12,6 +13,7 @@ import AttendanceButton from "../../components/attendance/AttendanceButton";
 
 export default function AttendancePage() {
   const [params]=useSearchParams();
+  const navigate = useNavigate();
   const courseCode=params.get("courseCode"); 
 
 
@@ -21,10 +23,12 @@ export default function AttendancePage() {
     const courseTimes={
       A: { start: "10:30", end: "12:00" },
       D: { start: "13:30", end: "15:00" },
-      B: { start: "16:00", end: "19:00" },
+      B: { start: "16:00", end: "21:00" },
     };
 
-    const getAttendanceStatus = ( now,startTime="10:30",endTime="12:00")=>{
+    const getAttendanceStatus = ( now,startTime,endTime)=>{
+      if(!startTime || !endTime) return "noClass"; //수업이 없을 때
+
         const [startHour, startMinute]= startTime.split(":").map(Number); //시작 시:분
         const [endHour, endMinute]= endTime.split(":").map(Number); //종료 시:분
 
@@ -49,19 +53,32 @@ export default function AttendancePage() {
         
     };
 
-   useEffect(() => {
-        const timer = setInterval(() => {
-            const current = new Date(); 
-            setNow(current); //현재시간 설정
-             const { start, end } = courseTimes[courseCode] || courseTimes["A"];
-            setStatus(getAttendanceStatus(current,start,end)); //출석 상태 설정
+     // courseCode 없을 경우 홈으로 이동
+  useEffect(() => {
+    if (!courseCode) {
+      navigate("/"); // 메인 페이지로 리다이렉트
+    }
+  }, [courseCode, navigate]);
 
-        },1000); //1초마다 업데이트 해줌
-        
-        return () => {
-    clearInterval(timer);
-  };
+
+
+  useEffect(() => {
+  const timer = setInterval(() => {
+    const current = new Date();
+    setNow(current);
+
+    const course = courseTimes[courseCode];
+    if (!course) {
+      setStatus("noClass");
+    } else {
+      setStatus(getAttendanceStatus(current, course.start, course.end));
+    }
+
+  }, 1000);
+
+  return () => clearInterval(timer);
 }, [courseCode]);
+
 
 
    return (
@@ -82,7 +99,19 @@ export default function AttendancePage() {
         <StatusTitle status={status} />
         <AttendanceButton
           status={status}
-          onClick={() => alert("✅ 출석이 처리되었습니다!")}
+          onClick={() =>{
+            if(status==="onTime"){
+              alert("출석처리 되었습니다!");
+            }else if(status==="late"){
+              alert("지각처리 되었습니다!");
+          } else if (status==="noClass"){
+            window.location.reload();//새로고침
+          }else{
+            alert("결석처리 되었습니다!");
+          }
+
+
+          }}
         />
       </div>
 

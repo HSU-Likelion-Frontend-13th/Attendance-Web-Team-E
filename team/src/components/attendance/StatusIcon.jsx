@@ -13,7 +13,7 @@ export default function StatusIcon({status}){
 
     if(status==="before"){
         icon=notyetIcon; //수업 전
-} else if(status==="after"){
+} else if(status==="after"||status==="absent"){
         icon=outIcon; //수업 후
 } else if(status==="late"){
         icon=lateIcon; //지각
@@ -24,7 +24,7 @@ export default function StatusIcon({status}){
 return(
     <div>
         {icon&&(
-        <img src={icon} alt="status icon" style={{width:"50px",height:"50px"}}/>)}
+        <img src={icon} alt="status icon" style={{width:"100px",height:"100px"}}/>)}
     </div>  
 );
 }

@@ -1,11 +1,11 @@
-// pages/main/GotoAttendance.jsx
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import hsuIcon from "../img/hsu.png";
 
-const GotoAttendance = () => {
+
+export default function GotoAttendance() {
   const navigate = useNavigate();
-
+    let Icon1 = hsuIcon;
   const handleClick = () => {
     const now = new Date();
     const hour = now.getHours();
@@ -17,35 +17,49 @@ const GotoAttendance = () => {
       courseCode = "A";
     } else if ((hour === 13 && minute >= 30) || hour === 14) {
       courseCode = "D";
-    } else if (hour >= 16 && hour < 19) {
+    } else if (hour >= 16 && hour < 21) {
       courseCode = "B";
     }
 
     if (courseCode) {
       navigate(`/attendance?courseCode=${courseCode}`);
     } else {
-      alert("지금은 출석 가능한 수업 시간이 아닙니다.");
+      alert("지금은 출석할 수 있는 시간이 아닙니다.");
     }
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h1>📚 출석 시스템</h1>
+    <div
+      style={{
+        textAlign: "center",
+        padding: "100px",
+        fontFamily: "sans-serif",
+      }}
+    >
+       <img src={Icon1} alt="HSU Logo" style={{ width: "300px" }} />
+
+      <h2>출석체크 페이지</h2>
       <button
         onClick={handleClick}
         style={{
-          padding: "16px 32px",
-          fontSize: "16px",
+          marginTop: "20px",
+          padding: "12px 24px",
           backgroundColor: "#2563eb",
           color: "white",
-          borderRadius: "10px",
+          border: "none",
+          borderRadius: "8px",
           cursor: "pointer",
         }}
       >
         출석하러 가기
       </button>
+
+      <div style={{ marginTop: "40px", fontSize: "14px", color: "#888" }}>
+        정시 기준 초과 시간<br />
+        00분~05분 이내 : <b>정상 출석</b><br />
+        05분~10분 이내 : <b>지각</b><br />
+        10분 초과 : <b>결석</b>
+      </div>
     </div>
   );
-};
-
-export default GotoAttendance;
+}
