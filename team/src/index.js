@@ -9,6 +9,8 @@ import TimePage from "./pages/timetable/TimePage";
 import TimetablePage from "./pages/timetable/TimetablePage";
 import TableItem from "./pages/timetable/TableItem";
 import NotFoundPage from "./pages/NotFoundPage";
+import GotoAttendance from "./pages/attendance/GotoAttendance";
+import AttendancePage from "./pages/attendance/AttendancePage";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,9 @@ const router = createBrowserRouter([
       { path: "timetable", element: <TimetablePage /> }, // "/timetable"
       { path: "timetable/:id", element: <TableItem /> },
       { path: "*", element: <NotFoundPage /> }, // 와일드카드
+      { path: "attendance", element: <AttendancePage /> }, // "/attendance"
+      { path: "goto-attendance", element: <GotoAttendance /> },  //출석하러가기 누르는 페이지
+      
     ],
   },
 ]);

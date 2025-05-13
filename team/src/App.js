@@ -1,11 +1,12 @@
 import React from "react";
 import GlobalStyles from "./GlobalStyles"; // 글로벌 스타일 import
-import { Outlet } from "react-router-dom"; // Outlet 컴포넌트 import
+import { Outlet } from "react-router-dom"; // 자식 라우트 표시
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyles /> {/* 글로벌 스타일 적용 */}
+      <GlobalStyles />
+      {/* 글로벌 스타일 적용 */}
       {/* *******개선된코드**********
         Outlet 컴포넌트를 사용하여 자식 라우트의 요소를 렌더링한다.
         Outlet은 자식 라우트를 렌더링하는 데 사용된다.
@@ -14,6 +15,7 @@ function App() {
       */}
       <Outlet />
     </div>
+
   );
 }
 
