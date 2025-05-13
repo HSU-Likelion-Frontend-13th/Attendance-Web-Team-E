@@ -17,7 +17,7 @@ export default function GotoAttendance() {
       courseCode = "A";
     } else if ((hour === 13 && minute >= 30) || hour === 14) {
       courseCode = "D";
-    } else if (hour >= 16 && hour < 21) {
+    } else if (hour >= 16 && hour < 17) {
       courseCode = "B";
     }
 
