@@ -23,7 +23,7 @@ export default function AttendancePage() {
     const courseTimes={
       A: { start: "10:30", end: "12:00" },
       D: { start: "13:30", end: "15:00" },
-      B: { start: "16:00", end: "21:00" },
+      B: { start: "23:00", end: "24:40" },
     };
 
     const getAttendanceStatus = ( now,startTime,endTime)=>{

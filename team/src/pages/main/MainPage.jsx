@@ -30,14 +30,18 @@ const MainPage = () => {
   const navigate = useNavigate();
   const handleTimePage = () => {
     navigate('/time');
-  }
+  };
+
+  const handleGotoAttendance = () => {
+    navigate('/goto-attendance');
+  };
 
   return (
     <MainContainer>
       <LionLogo />
       <SchoolLogo />
       <LogoutButton>로그아웃</LogoutButton>
-      <S.Button>출석체크</S.Button>
+      <S.Button onClick={handleGotoAttendance}>출석체크</S.Button>
       <S.Button onClick={handleTimePage}>오늘의 시간표</S.Button>
     </MainContainer>
   );
