@@ -82,7 +82,7 @@ export const CheckboxContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-left: 73rem;
+    max-width: 550px; /* 최대 너비 설정 */
     margin-bottom: 20px;
     font-size: 28px;
     color: black;
