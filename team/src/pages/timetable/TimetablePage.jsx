@@ -44,7 +44,7 @@ export const TableBox = styled.div`
     width: 600px;
     height: 150px;
     border: 2px solid #2162EB;
-    border-radius: 10px;
+    border-radius: 20px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
