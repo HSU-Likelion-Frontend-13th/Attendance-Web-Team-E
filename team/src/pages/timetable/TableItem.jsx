@@ -5,19 +5,17 @@ import TimetablePage from './TimetablePage';
 
 
 
-export const TableItemContainer = styled.div`;
-    background-color: rgb(228, 234, 251);
+export const TableItemContainer = styled.div`
+    background-color: rgba(228, 234, 251, 0.8); /* 약간 투명한 배경 */
     backdrop-filter: blur(10px); /* 배경 블러 처리 */
-    overflow: hidden; /* 스크롤 방지 */
-    position: relative;
+    height: 100vh; /* 화면 높이를 100%로 설정 */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-
-   
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0; /* 내부 여백 제거 */
+    margin: 0; /* 외부 여백 제거 */
+    overflow: hidden; /* 스크롤 방지 */
 `;
 
 export const TimeItemContainer = styled.div`
@@ -107,7 +105,7 @@ const TableItem = () => {
 
     return (
        <TableItemContainer>
-        <TimetablePage/>
+        <TimetablePage style={{ margin: '0px' }} />
         <TimeItemContainer>
             <Title>{item.title}</Title>
             <Time>{item.time} | {item.location}</Time>

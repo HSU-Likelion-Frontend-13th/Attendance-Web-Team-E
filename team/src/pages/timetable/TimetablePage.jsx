@@ -14,6 +14,7 @@ export const TableContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
     height: 100vh;
     position: relative; /* 자식 요소의 absolute 위치를 기준으로 설정 */
 `;
@@ -74,7 +75,8 @@ export const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 20px;
+    padding-left: 150px;
+  
 `;
 
 export const Title = styled.div`
