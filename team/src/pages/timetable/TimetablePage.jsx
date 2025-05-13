@@ -64,11 +64,21 @@ export const ContentContainer = styled.div`
     align-items: center;
     gap: 20px;
 `;
-
+export const ProfileContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+`;
 export const Profile = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
+`;
+
+export const Professor = styled.div`
+    font-size: 20px;
+    text-align: center;
 `;
 
 export const TextContainer = styled.div`
@@ -90,6 +100,8 @@ export const Subtitle = styled.div`
     margin-top: 10px;
 `;
 
+
+
 const TimetablePage = () => {
     
     const timetableItems = [
@@ -99,6 +111,7 @@ const TimetablePage = () => {
             time: "10:30 - 12:00",
             location: "탐구관 502호",
             profile: Pf1,
+            professor: "김교수",
         },
         {
             id: 2,
@@ -106,6 +119,7 @@ const TimetablePage = () => {
             time: "01:30 - 15:00",
             location: "탐구관 508호",
             profile: Pf1,
+             professor: "김교수",
         },
         {
             id: 3,
@@ -113,6 +127,7 @@ const TimetablePage = () => {
             time: "16:00 - 19:00",
             location: "탐구관 502호",
             profile: Pf2,
+            professor: "황교수",
         },
     ];
 
@@ -132,7 +147,10 @@ const TimetablePage = () => {
                 {timetableItems.map((item) => (
                     <TableBox key={item.id} item={item} onClick={() => handleClick(item.id)}>
                         <ContentContainer>
-                            <Profile src={item.profile} alt={`${item.title} Profile`} />
+                            <ProfileContainer>
+                                <Profile src={item.profile} alt={`${item.title} Profile`} />
+                                <Professor>{item.professor}</Professor>
+                            </ProfileContainer>
                             <TextContainer>
                                 <Title>{item.title}</Title>
                                 <Subtitle>{item.time} | {item.location}</Subtitle>
