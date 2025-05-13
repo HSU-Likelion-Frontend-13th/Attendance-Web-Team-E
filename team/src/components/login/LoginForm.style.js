@@ -5,10 +5,9 @@ export const FormContainer = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     height: 100vh;
     position: relative; /*자식 요소의 절대 위치 기준*/
-    
+    overflow: hidden; /* 스크롤 방지 */
 `;
 
 export const InputBox = styled.div`
@@ -20,7 +19,7 @@ export const InputBox = styled.div`
 
 export const Input = styled.input`
     width: 550px;
-    height: 50px;
+    height: 80px;
     padding: 10px;
     border: 1px solid ${(props) => (props.hsError ? "red" : "#ccc")}; /* 에러 시 빨간 테두리 */
     border-radius: 16px;
@@ -47,10 +46,12 @@ export const Input = styled.input`
 `;
 
 
-export const ErrorMessage = styled.p`
+export const ErrorMessage = styled.div`
     color: red;
     font-size: 14px;
     margin-top: 5px;
+    justify-content: flex-start;
+    
 `;
 
 export const Label = styled.label`
@@ -81,7 +82,7 @@ export const CheckboxContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-left: 70rem;
+    max-width: 550px; /* 최대 너비 설정 */
     margin-bottom: 20px;
     font-size: 28px;
     color: black;
