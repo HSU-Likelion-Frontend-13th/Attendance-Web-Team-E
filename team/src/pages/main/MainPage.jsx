@@ -11,7 +11,7 @@ const MainContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  position: relative;
+  position: relative; 
 `;
 
 const LogoutButton = styled.button`

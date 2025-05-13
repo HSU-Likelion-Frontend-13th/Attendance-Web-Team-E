@@ -3,9 +3,20 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import TimetablePage from './TimetablePage';
 
-export const TableItemContainer = styled.div`
+
+
+export const TableItemContainer = styled.div`;
     background-color: rgb(228, 234, 251);
+    backdrop-filter: blur(10px); /* 배경 블러 처리 */
     overflow: hidden; /* 스크롤 방지 */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+
    
 `;
 
@@ -13,7 +24,6 @@ export const TimeItemContainer = styled.div`
     position: absolute;
     top: 460px;
     background-color: white;
-    width: 100%;
     height: 50%;
     padding: 20px;
     border-radius: 20px 20px 0px 0px;
@@ -21,6 +31,8 @@ export const TimeItemContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    
   
 `;
 
@@ -94,29 +106,30 @@ const TableItem = () => {
     const weeks = Array.from({ length: 17 }, (_, i) => i + 1); // 1주차부터 17주차까지 생성
 
     return (
-        <TableItemContainer>
-            <TimetablePage />
-            <TimeItemContainer>
-                <Title>{item.title}</Title>
-                <Time>{item.time} | {item.location}</Time>
-              
+       <TableItemContainer>
+        <TimetablePage/>
+        <TimeItemContainer>
+            <Title>{item.title}</Title>
+            <Time>{item.time} | {item.location}</Time>
+            
 
-                <WeekButtonContainer>
-                    {weeks.map((week) => (
-                        <>
-                            {week === 9 && <div style={{ flexBasis: "100%" }} />} {/* 9주차에서 줄바꿈 */}
-                            <WeekButton
-                                key={week}
-                                active={week >= 1 && week <= 4} // 1주차부터 4주차만 활성화
-                                className={week === 2 || week === 5 ? 'alert' : ''} // 2주차와 5주차에 알림 표시
-                            >
-                                {week}주차
-                            </WeekButton>
-                        </>
-                    ))}
-                </WeekButtonContainer>
-            </TimeItemContainer>
+            <WeekButtonContainer>
+                {weeks.map((week) => (
+                    <>
+                        {week === 9 && <div style={{ flexBasis: "100%" }} />} {/* 9주차에서 줄바꿈 */}
+                        <WeekButton
+                            key={week}
+                            active={week >= 1 && week <= 4} // 1주차부터 4주차만 활성화
+                            className={week === 2 || week === 5 ? 'alert' : ''} // 2주차와 5주차에 알림 표시
+                        >
+                            {week}주차
+                        </WeekButton>
+                    </>
+                ))}
+            </WeekButtonContainer>
+        </TimeItemContainer>
         </TableItemContainer>
+    
     );
 };
 

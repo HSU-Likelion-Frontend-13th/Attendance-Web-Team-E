@@ -47,10 +47,12 @@ export const Input = styled.input`
 `;
 
 
-export const ErrorMessage = styled.p`
+export const ErrorMessage = styled.div`
     color: red;
     font-size: 14px;
     margin-top: 5px;
+    justify-content: flex-start;
+    
 `;
 
 export const Label = styled.label`

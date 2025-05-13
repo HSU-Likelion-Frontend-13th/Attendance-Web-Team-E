@@ -5,9 +5,11 @@ import School from "../../assets/School.png";
 import Pf1 from "../../assets/Pf1.png";
 import Pf2 from "../../assets/Pf2.png";
 import { useNavigate } from 'react-router-dom';
-import TableItem from './TableItem';
+
 
 export const TableContainer = styled.div`
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
