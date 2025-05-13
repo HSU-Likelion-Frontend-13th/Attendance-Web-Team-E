@@ -42,7 +42,7 @@ export const TableBoxContainer = styled.div`
 export const TableBox = styled.div`
     position: relative;
     width: 600px;
-    height: 100px;
+    height: 150px;
     border: 2px solid #2162EB;
     border-radius: 10px;
     display: flex;
@@ -75,7 +75,7 @@ export const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 150px;
+    padding-left: 100px;
   
 `;
 

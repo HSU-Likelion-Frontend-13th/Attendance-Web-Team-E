@@ -19,7 +19,7 @@ export const InputBox = styled.div`
 
 export const Input = styled.input`
     width: 550px;
-    height: 50px;
+    height: 80px;
     padding: 10px;
     border: 1px solid ${(props) => (props.hsError ? "red" : "#ccc")}; /* 에러 시 빨간 테두리 */
     border-radius: 16px;
@@ -82,7 +82,7 @@ export const CheckboxContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-left: 70rem;
+    margin-left: 73rem;
     margin-bottom: 20px;
     font-size: 28px;
     color: black;
