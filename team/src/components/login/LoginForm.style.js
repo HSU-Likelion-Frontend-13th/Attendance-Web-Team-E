@@ -5,10 +5,9 @@ export const FormContainer = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     height: 100vh;
     position: relative; /*자식 요소의 절대 위치 기준*/
-    
+    overflow: hidden; /* 스크롤 방지 */
 `;
 
 export const InputBox = styled.div`

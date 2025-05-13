@@ -14,7 +14,6 @@ export const TableContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     height: 100vh;
     position: relative; /* 자식 요소의 absolute 위치를 기준으로 설정 */
 `;
@@ -52,6 +51,7 @@ export const TableBox = styled.div`
     align-items: center;
     padding: 20px;
     margin-bottom: 20px;
+    overflow: hidden;
     &:hover {
         background-color: #e4ebfb;
         cursor: pointer;

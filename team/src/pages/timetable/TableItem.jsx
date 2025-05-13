@@ -11,7 +11,6 @@ export const TableItemContainer = styled.div`
     height: 100vh; /* 화면 높이를 100%로 설정 */
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
     padding: 0; /* 내부 여백 제거 */
     margin: 0; /* 외부 여백 제거 */
@@ -39,6 +38,7 @@ export const WeekButtonContainer = styled.div`
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    
 `;
 
 export const WeekButton = styled.button`
@@ -50,6 +50,7 @@ export const WeekButton = styled.button`
     font-size: 16px;
     cursor: pointer;
     width: 100px;
+   
 
     &:hover {
         background-color: ${(props) => (props.active ? '#1A4DB8' : '#E4EBFB')};
