@@ -25,9 +25,9 @@ export default function AttendancePage() {
     const [attendanceTime, setAttendanceTime] = useState(null);
 
     const courseTimes={
-      A: { start: "10:30", end: "11:00" },
-      D: { start: "14:02", end: "15:00" },
-      B: { start: "16:00", end: "19:40" },
+      A: { start: "10:30", end: "12:00" },
+      D: { start: "13:30", end: "15:00" },
+      B: { start: "16:00", end: "19:00" },
     };
 
     const getAttendanceStatus = ( now,startTime,endTime)=>{

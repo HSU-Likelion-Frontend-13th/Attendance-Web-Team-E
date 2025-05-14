@@ -35,9 +35,9 @@ const GotoAttendance = () => {
 
     let courseCode = null;
 
-    if ((hour === 10 && minute >= 30) || hour === 11) {
+    if ((hour === 10 && minute >= 30) || hour === 12) {
       courseCode = "A";
-    } else if ((hour === 14 && minute >= 2) ||hour === 15) {
+    } else if ((hour === 13 && minute >= 30) ||hour === 15) {
       courseCode = "D";
     } else if (hour >= 16 && hour < 19) {
       courseCode = "B";
