@@ -11,7 +11,7 @@ export default function StatusIcon({status}){
 
     let icon=null; //아이콘 저장 변수 설정
 
-    if(status==="before"){
+    if(status==="before"||status==="noClass"){
         icon=notyetIcon; //수업 전
 } else if(status==="after"||status==="absent"){
         icon=outIcon; //수업 후
@@ -24,7 +24,7 @@ export default function StatusIcon({status}){
 return(
     <div>
         {icon&&(
-        <img src={icon} alt="status icon" style={{width:"100px",height:"100px"}}/>)}
+        <img src={icon} alt="status icon" style={{width:"400px",height:"400px", margin:"100px" }}/>)}
     </div>  
 );
 }

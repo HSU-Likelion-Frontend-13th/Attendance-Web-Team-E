@@ -29,7 +29,7 @@ export default function ClassInfo({ course }) {
     <div>
       <strong>{info.name}</strong> | {info.time}
       <br />
-      <span style={{ color: "#888" }}>{info.place}</span>
+      <span style={{ color: "#888" ,fontSize:"20px"}}>{info.place}</span>
     </div>
   );
 }
