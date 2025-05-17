@@ -28,20 +28,21 @@ export const Logo = styled.img`
 
 export const Label = styled.div`
     position: absolute;
-    top: 100px;
+    top: 70px;
     display: block;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
+    
 `;
 
 export const TableBoxContainer = styled.div`
-    padding-top: 100px;
+    padding-top: 8rem;
 `;
 
 export const TableBox = styled.div`
     position: relative;
-    width: 600px;
+    width: 37.5rem;
     height: 150px;
     border: 2px solid #2162EB;
     border-radius: 20px;
