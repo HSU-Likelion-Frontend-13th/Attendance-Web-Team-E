@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import * as S from "./LoginForm.style";
 import { Button } from "../common/Button.style"; // Button import
 import School from "../../assets/School.png"; // Import your logo image
-import Lion from "../../assets/Lion.png"; // Import your lion image
+import Lion from "../../assets/Lion.svg"; // Import your lion image
 import LionLogo from "../../components/common/LionLogo"; // Import your LionLogo component
 import NumberIcon from "../../assets/Number.png";
 import NameIcon from "../../assets/Name.png";

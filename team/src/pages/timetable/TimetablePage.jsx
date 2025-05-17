@@ -86,7 +86,7 @@ export const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 100px;
+    padding-left: 150px;
   
 `;
 

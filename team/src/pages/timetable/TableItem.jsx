@@ -6,7 +6,7 @@ import TimetablePage from './TimetablePage';
 
 
 export const TableItemContainer = styled.div`
-    background-color: rgba(228, 234, 251, 0.8); /* 약간 투명한 배경 */
+    background-color: rgba(33, 98, 233, 0.1); /* 파란색 배경에 투명도 추가 */
     backdrop-filter: blur(10px); /* 배경 블러 처리 */
     height: 100vh; /* 화면 높이를 100%로 설정 */
     display: flex;
@@ -15,6 +15,8 @@ export const TableItemContainer = styled.div`
     padding: 0; /* 내부 여백 제거 */
     margin: 0; /* 외부 여백 제거 */
     overflow: hidden; /* 스크롤 방지 */
+    position: relative;
+    z-index: 1; /*-index 값 설정 */
 `;
 
 export const TimeItemContainer = styled.div`
@@ -28,7 +30,8 @@ export const TimeItemContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    z-index: 2; /* TableItemContainer보다 높은 z-index 값 설정 */
+    width: 100%; /* 너비 설정 추가 */
   
 `;
 
@@ -106,8 +109,9 @@ const TableItem = () => {
     const weeks = Array.from({ length: 17 }, (_, i) => i + 1); // 1주차부터 17주차까지 생성
 
     return (
+        
        <TableItemContainer>
-        <TimetablePage style={{ margin: '0px' }} />
+         <TimetablePage style={{ margin: '0px' }} />
         <TimeItemContainer>
             <Title>{item.title}</Title>
             <Time style={{ paddingBottom: ' 0px' }}>{item.time} | {item.location}</Time>

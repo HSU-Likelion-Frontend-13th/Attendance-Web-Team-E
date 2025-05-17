@@ -1,5 +1,5 @@
 import React from 'react'
-import Lion from "../../assets/Lion.png"
+import Lion from "../../assets/Lion.svg"
 import styled from "styled-components";
 
 
