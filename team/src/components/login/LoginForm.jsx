@@ -6,7 +6,8 @@ import { Button } from "../common/Button.style"; // Button import
 import School from "../../assets/School.png"; // Import your logo image
 import Lion from "../../assets/Lion.png"; // Import your lion image
 import LionLogo from "../../components/common/LionLogo"; // Import your LionLogo component
-
+import NumberIcon from "../../assets/Number.png";
+import NameIcon from "../../assets/Name.png";
 
 const dummyUser = {
     name: "최멋사",
@@ -38,10 +39,11 @@ const LoginForm = () => {
             
             <S.InputBox>
             <S.Label htmlFor="name">이름</S.Label>
+            <S.InputWrapper icon={NameIcon}>
                 <S.Input
                     id="name"
                     type="text"
-                    placeholder= "👤 이름을 입력해주세요"
+                    placeholder= "이름을 입력해주세요"
                     hsError={!!errors.name}
                     {...register("name", {
                         required: "이름을 입력해주세요",
@@ -51,16 +53,18 @@ const LoginForm = () => {
                         }
                     })}
                 />
+                </S.InputWrapper>
                 
             </S.InputBox>
             {errors.name && <S.ErrorMessage>{errors.name.message}</S.ErrorMessage>}
             
             <S.InputBox>
             <S.Label htmlFor="number">학번</S.Label>
+            <S.InputWrapper icon={NumberIcon}>
                 <S.Input
                     id="number"
                     type="text"
-                    placeholder= "🔒 학번을 입력해주세요"
+                    placeholder= "학번을 입력해주세요"
                     hsError={!!errors.number}
                     {...register("number", {
                         required: "학번을 입력해주세요",
@@ -69,8 +73,9 @@ const LoginForm = () => {
                             message: "⚠️ 7자리 숫자만 입력 가능합니다."
                         }
                     })}
+                    
                 />
-                
+                </S.InputWrapper>
             </S.InputBox>
             {errors.number && <S.ErrorMessage>{errors.number.message}</S.ErrorMessage>}
 

@@ -17,10 +17,33 @@ export const InputBox = styled.div`
 
 `;
 
+export const InputWrapper = styled.div`
+    position: relative;
+    width: 100%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background-image: url(${props => props.icon});
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: none;
+    }
+`;
+
+
+
+
 export const Input = styled.input`
     width: 550px;
     height: 80px;
-    padding: 10px;
+    padding: 0 20px 0 54px;  /* 왼쪽 패딩을 늘려서 아이콘 공간 확보 */
     border: 1px solid ${(props) => (props.hsError ? "red" : "#ccc")}; /* 에러 시 빨간 테두리 */
     border-radius: 16px;
     font-size: 16px;
