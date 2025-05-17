@@ -19,9 +19,9 @@ export const TableItemContainer = styled.div`
 
 export const TimeItemContainer = styled.div`
     position: absolute;
-    top: 460px;
+    top: 360px;
     background-color: white;
-    height: 50%;
+    height: 582px;
     padding: 20px;
     border-radius: 20px 20px 0px 0px;
     border: 2px solid #2162E9;
@@ -29,7 +29,6 @@ export const TimeItemContainer = styled.div`
     align-items: center;
     text-align: center;
 
-    
   
 `;
 
@@ -38,6 +37,7 @@ export const WeekButtonContainer = styled.div`
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    margin-top: -30px;
     
 `;
 
@@ -50,6 +50,7 @@ export const WeekButton = styled.button`
     font-size: 16px;
     cursor: pointer;
     width: 100px;
+    
    
 
     &:hover {
@@ -109,9 +110,8 @@ const TableItem = () => {
         <TimetablePage style={{ margin: '0px' }} />
         <TimeItemContainer>
             <Title>{item.title}</Title>
-            <Time>{item.time} | {item.location}</Time>
+            <Time style={{ paddingBottom: ' 0px' }}>{item.time} | {item.location}</Time>
             
-
             <WeekButtonContainer>
                 {weeks.map((week) => (
                     <>
