@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {hasError} from "react-hook-form";
+import CheckIcon from "../../assets/Check.svg";
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
@@ -124,11 +125,14 @@ export const CheckboxContainer = styled.div`
         box-shadow: 0 0 0 4px white;
     }
          input[type="checkbox"]:checked::after {
-        content: "✔"; /* 체크 표시 */
-        color: white;
-        font-size: 20px;
+        content: ""; 
+        background-image: url(${CheckIcon});
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
         display: block;
-        text-align: center;
     }
         
 `;
