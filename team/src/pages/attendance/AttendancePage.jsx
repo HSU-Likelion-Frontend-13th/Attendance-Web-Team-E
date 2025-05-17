@@ -9,6 +9,9 @@ import StatusTitle from "../../components/attendance/StatusTitle";
 import StatusIcon from "../../components/attendance/StatusIcon";
 import AttendanceButton from "../../components/attendance/AttendanceButton";
 
+import LionLogo from "../../components/common/LionLogo";
+import SchoolLogo from "../../components/common/SchoolLogo";
+
 
 
 export default function AttendancePage() {
@@ -19,11 +22,12 @@ export default function AttendancePage() {
 
     const [now, setNow]=useState(new Date()); //현재시간 받기
     const [status, setStatus]=useState("before"); //출석 상태 
+    const [attendanceTime, setAttendanceTime] = useState(null);
 
     const courseTimes={
       A: { start: "10:30", end: "12:00" },
       D: { start: "13:30", end: "15:00" },
-      B: { start: "23:00", end: "24:40" },
+      B: { start: "16:00", end: "19:00" },
     };
 
     const getAttendanceStatus = ( now,startTime,endTime)=>{
@@ -81,45 +85,86 @@ export default function AttendancePage() {
 
 
 
-   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "40px 20px",
-        fontFamily: "sans-serif",
-      }}
-    >
-      {/*중앙*/}
-      <div style={{ textAlign: "center" }}>
-       
-        <StatusIcon status={status} />
-        <StatusTitle status={status} />
-        <AttendanceButton
-          status={status}
-          onClick={() =>{
-            if(status==="onTime"){
-              alert("출석처리 되었습니다!");
-            }else if(status==="late"){
-              alert("지각처리 되었습니다!");
-          } else if (status==="noClass"){
-            window.location.reload();//새로고침
-          }else{
+    return (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      fontFamily: "sans-serif",
+      height: "100vh",
+      position: "relative",
+      paddingTop: "60px",
+    }}
+  >
+
+    <div style={{ position: "absolute", top: "20px", left: "20px" }}>
+      <LionLogo />
+    </div>
+
+    <div style={{ position: "absolute", top: "20px", right: "20px" }}>
+  <SchoolLogo />
+</div>
+
+
+    {/* 중앙 */}
+    <div style={{ textAlign: "center" }}>
+      <StatusIcon status={status} />
+      <StatusTitle status={status} />
+
+      <AttendanceButton
+        status={status}
+        onClick={() => {
+          const time = new Date();
+          setAttendanceTime(time);
+          if (status === "onTime") {
+            alert("출석처리 되었습니다!");
+          } else if (status === "late") {
+            alert("지각처리 되었습니다!");
+          } else if (status === "noClass") {
+            window.location.reload();
+          } else if (status === "absent") {
             alert("결석처리 되었습니다!");
           }
+        }}
+      />
 
+      {attendanceTime && (
+          <div style={{ marginTop: "8px", color: "#888", fontSize: "20px" }}>
+            출석 시간 :{" "}
+            {attendanceTime.toLocaleTimeString("ko-KR", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </div>
+        )}
 
-          }}
-        />
+      <div style={{ marginTop: "16px", fontWeight: "bold", fontSize: "24px" }}>
+        <CurrentTime now={now} />
       </div>
 
-      {/*하단*/}
-      <div style={{ textAlign: "center", marginTop: "30px", fontSize: "14px", color: "#555" }}>
+      <div style={{ marginTop: "8px", fontSize: "14px", color: "#555" }}>
         <ClassInfo course={courseCode} />
+      </div>
+    </div>
 
-        <CurrentTime now={now} />
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20px",
+          left: "20px",
+          fontSize: "20px",
+          color: "#888",
+          textAlign: "left",
+          lineHeight: "1.6",
+        }}
+      >
+        정시 기준 초과 시간 00분~05분 이내 : <b>정상 출석</b>
+        <br />
+        05분~10분 이내 : <b>지각</b>
+        <br />
+        10분 초과 : <b>결석</b>
       </div>
     </div>
   );

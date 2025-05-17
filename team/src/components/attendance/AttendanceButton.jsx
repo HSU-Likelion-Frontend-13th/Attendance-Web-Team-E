@@ -14,11 +14,12 @@ export default function AttendanceButton({ status, onClick }) {
       onClick={onClick}
       disabled={ status === "after" || status === "absent"}
       style={{
-        padding: "10px 18px",
+        padding: "20px 25px",
         backgroundColor: "blue",
         color: "white",
-        borderRadius: "8px",
+        borderRadius: "15px",
         cursor: "pointer",
+        fontSize: "20px",
       }}
     >
       {ButtonName} 
